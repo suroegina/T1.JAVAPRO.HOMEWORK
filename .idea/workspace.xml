@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6305483-6734-4320-bf38-548081d2f5cc" name="Changes" comment="homeworks project create" />
+    <list default="true" id="e6305483-6734-4320-bf38-548081d2f5cc" name="Changes" comment="homework created" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1789161917737</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="homework created">
+      <created>1789163497976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1789163497976</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,7 +120,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -120,6 +134,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="homeworks project create" />
-    <option name="LAST_COMMIT_MESSAGE" value="homeworks project create" />
+    <MESSAGE value="homework created" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework created" />
   </component>
 </project>
