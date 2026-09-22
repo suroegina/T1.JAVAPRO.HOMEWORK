@@ -3,13 +3,15 @@ package org.example.homeworks.hw2;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.reverseOrder;
+
 public class HomeworkTwo {
     public static void main(String[] args) {
         System.out.println("\n1. найти 3е наибольшее число");
         int[] numbers = {5,2,10,9,4,3,10,1,13};
         int thirdLargestNumber = Arrays.stream(numbers)
                 .boxed()
-                .sorted(Collections.reverseOrder())
+                .sorted(Comparator.reverseOrder())
                 .skip(2)
                 .findFirst()
                 .orElse(1);
