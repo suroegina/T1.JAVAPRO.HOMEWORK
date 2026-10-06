@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6305483-6734-4320-bf38-548081d2f5cc" name="Changes" comment="homework created" />
+    <list default="true" id="e6305483-6734-4320-bf38-548081d2f5cc" name="Changes" comment="homework #3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/homeworks/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/homeworks/Main.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="homework4" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -32,10 +41,24 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="DemoThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.homeworks.DemoThread" />
+      <module name="T1.JAVAPRO.HOMEWORK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.homeworks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.homeworks.Main" />
       <module name="T1.JAVAPRO.HOMEWORK" />
@@ -51,6 +74,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DemoThread" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DemoThread" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -106,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1789163497976</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="homework #2">
+      <created>1790111107209</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1790111107209</updated>
+    </task>
+    <task id="LOCAL-00008" summary="homework #3">
+      <created>1790155783188</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1790155783188</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +176,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="homeworks project create" />
     <MESSAGE value="homework created" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework created" />
+    <MESSAGE value="homework #2" />
+    <MESSAGE value="homework #3" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework #3" />
   </component>
 </project>
