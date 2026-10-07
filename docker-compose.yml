@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: java-users-hw-postgres
+    environment:
+      POSTGRES_DB: homework
+      POSTGRES_USER: homework
+      POSTGRES_PASSWORD: homework
+    ports:
+      - "5432:5432"
+    volumes:
+      # init.sql выполнится автоматически при ПЕРВОМ создании базы
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      # данные хранятся в докер-томе, чтобы не пропадали между перезапусками
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U homework -d homework"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
