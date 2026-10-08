@@ -1,24 +1,23 @@
 package org.example.homeworks.users;
 
+import com.zaxxer.hikari.HikariConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
 /**
- * Точка входа. Здесь мы:
  *   1) создаём Spring-контекст;
  *   2) достаём из него готовый бин UserService;
  *   3) дёргаем все операции, которые требовались в задании.
  */
+@ComponentScan(basePackageClasses = AppConfig.class)
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("=== Старт домашнего задания 'users' ===");
-
-        // try-with-resources закроет контекст в конце; заодно закроется
-        // и пул соединений HikariCP (у бина dataSource указан destroyMethod = "close").
         try (AnnotationConfigApplicationContext context =
-                     new AnnotationConfigApplicationContext(AppConfig.class)) {
+                     new AnnotationConfigApplicationContext(Main.class);) {
 
             // Получаем готовый бин UserService — все его зависимости Sprin уже собрал за нас.
             UserService service = context.getBean(UserService.class);

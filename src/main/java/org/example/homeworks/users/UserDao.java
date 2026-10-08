@@ -4,6 +4,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
@@ -17,6 +19,8 @@ import java.util.List;
  * ответственности" (separation of concerns): если завтра таблица переименуется
  * или изменится её структура, править придётся только этот класс.
  */
+@Repository
+@Component
 public class UserDao {
 
     private final JdbcTemplate jdbc;

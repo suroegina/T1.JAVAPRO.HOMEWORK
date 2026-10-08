@@ -1,5 +1,7 @@
 package org.example.homeworks.users;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  * Задание: создавать, удалять, получать одного, получать всех.
  * Методы create() и delete() возвращают boolean — "получилось или нет"
  */
+@Component
 public class UserService {
 
     private final UserDao userDao;
