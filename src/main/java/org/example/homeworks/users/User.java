@@ -1,13 +1,20 @@
 package org.example.homeworks.users;
-
+import jakarta.persistence.*;
 /**
  * Простая модель пользователя.
  * Это обычный Java-объект (POJO): только поля, конструкторы, геттеры/сеттеры.
  * Соответствует строке таблицы users в базе: id, username.
  */
+
+
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String username;
 
     public User() {
@@ -15,6 +22,9 @@ public class User {
 
     public User(Long id, String username) {
         this.id = id;
+        this.username = username;
+    }
+    public User(String username) {
         this.username = username;
     }
 

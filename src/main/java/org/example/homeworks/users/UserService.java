@@ -1,67 +1,50 @@
 package org.example.homeworks.users;
-
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
-/**
- * Сервис — слой бизнес-логики. Прячет от "внешнего мира" детали работы с DAO
- * и добавляет проверки/поведение поверх "сырых" операций базы.
- * Задание: создавать, удалять, получать одного, получать всех.
- * Методы create() и delete() возвращают boolean — "получилось или нет"
- */
-@Component
+@Service
 public class UserService {
 
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    /**
-     * Создаёт пользователя.
-     *
-     * @return созданного пользователя (уже с присвоенным id) или null, если имя пустое.
-     */
-    public User create(String username) {
-        if (username == null || username.isBlank()) {
-            return null;
+    @Transactional
+    public User createUser(String username) {
+        User user = new User(username);
+        return userRepository.save(user);
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Пользователь с id=" + id + " не найден"));
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Transactional
+    public void deleteUser(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new RuntimeException("Пользователь с id=" + id + " не найден");
         }
-        Long id = userDao.create(username.trim());
-        return new User(id, username.trim());
+        userRepository.deleteById(id);
     }
 
-    /**
-     * Удаляет пользователя по id.
-     *
-     * @return true, если строка действительно была удалена.
-     */
-    public boolean delete(Long id) {
-        return userDao.delete(id) > 0;
+    @Transactional
+    public User deleteAll() {
+        userRepository.deleteAllInBatch();
+        return null;
     }
 
-    /**
-     * Удаляет пользователя всех пользователей
-     *
-     * @return true, если все строки действительно были удалены.
-     */
-    public boolean deleteAll() {
-        return userDao.deleteAll() > 0;
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
-    /**
-     * Возвращает одного пользователя по id (или null, если не найден).
-     */
-    public User getOne(Long id) {
-        return userDao.findById(id);
-    }
-
-    /**
-     * Возвращает всех пользователей.
-     */
-    public List<User> getAll() {
-        return userDao.findAll();
-    }
 }
-
