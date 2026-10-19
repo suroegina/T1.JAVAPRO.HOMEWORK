@@ -19,7 +19,6 @@ import java.util.List;
  * ответственности" (separation of concerns): если завтра таблица переименуется
  * или изменится её структура, править придётся только этот класс.
  */
-@Repository
 @Component
 public class UserDao {
 

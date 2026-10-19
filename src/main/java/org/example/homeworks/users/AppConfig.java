@@ -21,8 +21,6 @@ import javax.sql.DataSource;
  * dataSource -> userDao -> userService.
  */
 @Configuration
-@Component
-@ComponentScan
 @PropertySource("classpath:application.properties")
 public class AppConfig {
     @Value("${db.url}")

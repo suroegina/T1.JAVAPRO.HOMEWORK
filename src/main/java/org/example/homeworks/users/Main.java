@@ -11,7 +11,7 @@ import java.util.List;
  *   2) достаём из него готовый бин UserService;
  *   3) дёргаем все операции, которые требовались в задании.
  */
-@ComponentScan(basePackageClasses = AppConfig.class)
+@ComponentScan
 public class Main {
 
     public static void main(String[] args) {
