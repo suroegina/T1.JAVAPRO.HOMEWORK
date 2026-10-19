@@ -1,4 +1,4 @@
-package org.example.homeworks.users.repository;
+package org.example.homeworks.users.dao;
 
 import org.example.homeworks.users.user.User;
 import org.springframework.jdbc.core.JdbcTemplate;
