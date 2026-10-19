@@ -1,4 +1,4 @@
-package org.example.homeworks.users;
+package org.example.homeworks.users.user;
 
 /**
  * Простая модель пользователя.

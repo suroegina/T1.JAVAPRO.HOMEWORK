@@ -1,6 +1,8 @@
 package org.example.homeworks.users;
 
-import com.zaxxer.hikari.HikariConfig;
+import org.example.homeworks.users.dao.UserDao;
+import org.example.homeworks.users.service.UserService;
+import org.example.homeworks.users.user.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 

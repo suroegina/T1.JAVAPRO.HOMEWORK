@@ -1,5 +1,7 @@
-package org.example.homeworks.users;
+package org.example.homeworks.users.service;
 
+import org.example.homeworks.users.dao.UserDao;
+import org.example.homeworks.users.user.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
