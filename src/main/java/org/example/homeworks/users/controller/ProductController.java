@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//http://localhost:5438/suroegina/products/
+//http://localhost:8080/suroegina/products/
 //http://localhost:8080/suroegina/products/153
 //http://localhost:8080/suroegina/products?userId=185
 

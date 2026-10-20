@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//http://localhost:5438/suroegina/users
-//http://localhost:5438/suroegina/users/1
+//http://localhost:8080/suroegina/users
+//http://localhost:8080/suroegina/users/1
 
 @RestController
 @RequestMapping("/suroegina/users")
