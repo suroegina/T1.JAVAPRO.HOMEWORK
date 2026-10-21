@@ -1,8 +1,8 @@
 package org.example.homeworks.users.controller;
 
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.example.homeworks.users.dto.ProductDto;
 import org.example.homeworks.users.service.ProductService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +22,9 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) {
+    public ProductDto getProductById(@PathVariable Long id) {
         return productService.getProductById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
     }
 
     @GetMapping
@@ -35,8 +34,8 @@ public class ProductController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<ProductDto>> getAllProductsDto() {
-        return ResponseEntity.ok(productService.getAllProductsDto());
+    public List<ProductDto> getAllProductsDto() {
+        return productService.getAllProductsDto();
     }
 
 
