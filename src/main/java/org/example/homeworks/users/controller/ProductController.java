@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//http://localhost:8080/suroegina/products/
-//http://localhost:8080/suroegina/products/153
-//http://localhost:8080/suroegina/products?userId=185
+//http://localhost:8080/v1/suroegina/products/
+//http://localhost:8080/v1/suroegina/products/153
+//http://localhost:8080/v1/suroegina/products?userId=185
 
 @RestController
-@RequestMapping("/suroegina/products")
+@RequestMapping("/v1/suroegina/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -29,9 +29,9 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>> getProductsByUserId(@RequestParam("userId") Long userId) {
+    public List<ProductDto> getProductsByUserId(@RequestParam("userId") Long userId) {
         List<ProductDto> products = productService.getProductsByUserId(userId);
-        return ResponseEntity.ok(products);
+        return products;
     }
 
     @GetMapping("/")

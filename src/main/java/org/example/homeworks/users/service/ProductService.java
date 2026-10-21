@@ -60,8 +60,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product deleteAll() {
+    public void deleteAll() {
         productRepository.deleteAllInBatch();
-        return null;
     }
 }

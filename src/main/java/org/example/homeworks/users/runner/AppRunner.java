@@ -1,7 +1,6 @@
 package org.example.homeworks.users.runner;
 
 import org.example.homeworks.users.dto.ProductDto;
-import org.example.homeworks.users.product.Product;
 import org.example.homeworks.users.product.ProductType;
 import org.example.homeworks.users.service.ProductService;
 import org.example.homeworks.users.service.UserService;
@@ -27,8 +26,8 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.printf("Очищаем таблицу USERS и PRODUCTS %n");
-        Product deleteAllProducts = productService.deleteAll();
-        User deleteAllUsers = userService.deleteAll();
+        productService.deleteAll();
+        userService.deleteAll();
 
 
         User firstUser = userService.createUser("Nikita");

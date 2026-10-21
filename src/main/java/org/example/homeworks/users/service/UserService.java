@@ -68,9 +68,8 @@ public class UserService {
      * @return true, если все строки действительно были удалены.
      */
     @Transactional
-    public User deleteAll() {
+    public void deleteAll() {
         userRepository.deleteAllInBatch();
-        return null;
     }
     /**
      * Возвращает одного пользователя по id (или null, если не найден).
