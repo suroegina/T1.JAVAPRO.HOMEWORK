@@ -1,4 +1,6 @@
 package org.example.homeworks.users.service;
+
+import org.example.homeworks.users.dto.UserDto;
 import org.example.homeworks.users.repository.UserRepository;
 import org.example.homeworks.users.user.User;
 import org.springframework.stereotype.Service;
@@ -6,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Сервис — слой бизнес-логики. Прячет от "внешнего мира" детали работы с DAO
@@ -16,11 +19,26 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    private UserDto userDto(User user) {
+        return new UserDto(user.getId(), user.getUsername());
+    }
+    public List<UserDto> getAllUsersDto() {
+        return userRepository.findAll().stream()
+                .map(this::userDto)
+                .collect(Collectors.toList());
+    }
+
+    public Optional<UserDto> getUserByIdDto(Long id) {
+        return userRepository.findById(id)
+                .map(this::userDto);
+    }
+
     /**
      * Создаёт пользователя.
      *
@@ -34,8 +52,8 @@ public class UserService {
 
     /**
      * Удаляет пользователя по id.
-     *
-     * @return true, если строка действительно была удалена.
+     * <p>
+     * return true, если строка действительно была удалена.
      */
     @Transactional
     public void deleteUser(Long id) {
@@ -50,9 +68,8 @@ public class UserService {
      * @return true, если все строки действительно были удалены.
      */
     @Transactional
-    public User deleteAll() {
+    public void deleteAll() {
         userRepository.deleteAllInBatch();
-        return null;
     }
     /**
      * Возвращает одного пользователя по id (или null, если не найден).
