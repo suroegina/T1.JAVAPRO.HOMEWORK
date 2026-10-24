@@ -4,3 +4,5 @@ server:
 product:
   service:
     url: http://localhost:8080
+    connect-timeout: 5s
+    read-timeout: 10s
