@@ -5,6 +5,8 @@ import org.example.homeworks.users.product.Product;
 import org.example.homeworks.users.product.ProductType;
 import org.example.homeworks.users.user.User;
 import org.example.homeworks.users.repository.ProductRepository;
+import org.example.homeworks.users.exception.ProductException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,5 +64,22 @@ public class ProductService {
     @Transactional
     public void deleteAll() {
         productRepository.deleteAllInBatch();
+    }
+
+    /**
+     * Списание суммы с баланса продукта (нужно платёжному ядру).
+     * Кидает 404, если продукта нет, и 400, если средств недостаточно.
+     */
+    @Transactional
+    public ProductDto debit(Long id, BigDecimal amount) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ProductException(
+                        HttpStatus.NOT_FOUND, "PRODUCT_NOT_FOUND", "Product not found with id: " + id));
+        if (product.getBalance().compareTo(amount) < 0) {
+            throw new ProductException(
+                    HttpStatus.BAD_REQUEST, "INSUFFICIENT_FUNDS", "Insufficient funds on product id=" + id);
+        }
+        product.setBalance(product.getBalance().subtract(amount));
+        return productDto(product);
     }
 }

@@ -1,8 +1,10 @@
 package org.example.homeworks.users.controller;
 
-import org.apache.velocity.exception.ResourceNotFoundException;
+import org.example.homeworks.users.dto.DebitRequest;
 import org.example.homeworks.users.dto.ProductDto;
+import org.example.homeworks.users.exception.ProductException;
 import org.example.homeworks.users.service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +26,8 @@ public class ProductController {
     @GetMapping("/{id}")
     public ProductDto getProductById(@PathVariable Long id) {
         return productService.getProductById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
+                .orElseThrow(() -> new ProductException(
+                        HttpStatus.NOT_FOUND, "PRODUCT_NOT_FOUND", "Product not found with id: " + id));
     }
 
     @GetMapping
@@ -36,6 +39,14 @@ public class ProductController {
     @GetMapping("/")
     public List<ProductDto> getAllProductsDto() {
         return productService.getAllProductsDto();
+    }
+
+    /**
+     * Списание средств с продукта. Вызывается платёжным ядром через RestTemplate.
+     */
+    @PostMapping("/{id}/debit")
+    public ProductDto debit(@PathVariable Long id, @RequestBody DebitRequest request) {
+        return productService.debit(id, request.amount());
     }
 
 
